@@ -2,22 +2,26 @@
 
 require_once 'tomato.php';
 
-class TomatoBush {
+class TomatoBush
+{
     private $tomatoes = [];
 
-    public function __construct($numTomatoes) {
+    public function __construct($numTomatoes)
+    {
         for ($i = 0; $i < $numTomatoes; $i++) {
             $this->tomatoes[] = new Tomato($i);
         }
     }
 
-    public function growAll() {
+    public function growAll(): void
+    {
         foreach ($this->tomatoes as $tomato) {
             $tomato->grow();
         }
     }
 
-    public function allAreRipe() {
+    public function allAreRipe(): bool
+    {
         foreach ($this->tomatoes as $tomato) {
             if (!$tomato->isRipe()) {
                 return false;
@@ -26,9 +30,8 @@ class TomatoBush {
         return true;
     }
 
-    public function giveAwayAll() {
+    public function giveAwayAll(): void
+    {
         $this->tomatoes = [];
     }
 }
-
-?>
